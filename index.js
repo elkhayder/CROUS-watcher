@@ -1,5 +1,6 @@
 const axios = require("axios");
 const cron = require("node-cron");
+var http = require("http");
 
 const config = { timezone: "Africa/Casablanca" };
 
@@ -61,3 +62,8 @@ const scriptRunningInform = () => {
 
 cron.schedule("*/5 * * * *", handler, config);
 cron.schedule("0 * * * *", scriptRunningInform, config);
+
+// This running server is just to keep heroku process from dying
+http
+   .createServer(function (request, response) {})
+   .listen(process.env.PORT || 5000);
