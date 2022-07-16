@@ -1,14 +1,19 @@
 const axios = require("axios");
+const cron = require("node-cron");
 
-const timeout = 5 * 60 * 1000;
+const config = { timezone: "Africa/Casablanca" };
 
 var retries = 0;
 
 const sendMessage = (message) => {
-   axios.default.get(
-      "https://api.callmebot.com/whatsapp.php?phone=+212645262126&apikey=487766&text=" +
-         encodeURIComponent(message)
-   );
+   try {
+      axios.default.get(
+         "https://api.callmebot.com/whatsapp.php?phone=+212645262126&apikey=487766&text=" +
+            encodeURIComponent(message)
+      );
+   } catch (e) {
+      console.log(`Error: ${e}`);
+   }
 };
 
 const handler = async () => {
@@ -43,7 +48,7 @@ const handler = async () => {
 
       sendMessage(message);
    } catch (e) {
-      console.log(`Error, ${e}`);
+      sendMessage(`Error, ${e}`);
    }
 };
 
@@ -54,9 +59,5 @@ const scriptRunningInform = () => {
    sendMessage(message);
 };
 
-setInterval(scriptRunningInform, timeout * 4);
-
-setInterval(handler, timeout);
-
-handler();
-scriptRunningInform();
+cron.schedule("*/5 * * * *", handler, config);
+cron.schedule("0 * * * *", scriptRunningInform, config);
