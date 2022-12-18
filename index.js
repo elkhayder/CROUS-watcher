@@ -42,7 +42,7 @@ const handler = async () => {
 
       console.log(message);
 
-      if (r.results?.total == 0) return;
+      // if (r.results?.total == 0) return;
 
       sendMessage(message);
    } catch (e) {
