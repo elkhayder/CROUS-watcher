@@ -9,7 +9,7 @@ var retries = 0;
 const sendMessage = (message) => {
    try {
       axios.default.get(
-         "https://api.callmebot.com/whatsapp.php?phone=+212645262126&apikey=487766&text=" +
+         "https://api.callmebot.com/whatsapp.php?phone=33745640961&apikey=6568151&text=" +
             encodeURIComponent(message)
       );
    } catch (e) {
@@ -21,24 +21,21 @@ const handler = async () => {
    ++retries;
    try {
       const r = await axios.default
-         .post(
-            "https://private-no-cors-proxy.herokuapp.com/https://trouverunlogement.lescrous.fr/api/fr/search/26",
-            {
-               precision: 5,
-               need_aggregation: true,
-               page: 1,
-               pageSize: 24,
-               sector: null,
-               idTool: 26,
-               occupationModes: [],
-               equipment: [],
-               price: { min: 0, max: null },
-               location: [
-                  { lon: 7.6881, lat: 48.6462 },
-                  { lon: 7.8361, lat: 48.4919 },
-               ],
-            }
-         )
+         .post("https://trouverunlogement.lescrous.fr/api/fr/search/27", {
+            precision: 5,
+            need_aggregation: true,
+            page: 1,
+            pageSize: 24,
+            sector: null,
+            idTool: 27,
+            occupationModes: [],
+            equipment: [],
+            price: { min: 0, max: null },
+            location: [
+               { lon: 7.6881, lat: 48.6462 },
+               { lon: 7.8361, lat: 48.4919 },
+            ],
+         })
          .then((r) => r.data);
 
       let message = `*Retry #${retries}*: Found ${r.results.total} result(s)`;
@@ -60,10 +57,7 @@ const scriptRunningInform = () => {
    sendMessage(message);
 };
 
-cron.schedule("*/5 * * * *", handler, config);
-cron.schedule("0 * * * *", scriptRunningInform, config);
+cron.schedule("*/30 * * * * *", handler, config);
+cron.schedule("* */6 * * *", scriptRunningInform, config);
 
-// This running server is just to keep heroku process from dying
-http
-   .createServer(function (request, response) {})
-   .listen(process.env.PORT || 5000);
+scriptRunningInform();
