@@ -57,7 +57,7 @@ const scriptRunningInform = () => {
    sendMessage(message);
 };
 
-cron.schedule("*/30 * * * * *", handler, config);
-cron.schedule("* */6 * * *", scriptRunningInform, config);
+setInterval(() => handler(), 15 * 1000); // 15 seconds
+setInterval(() => scriptRunningInform(), 6 * 60 * 60 * 1000); // 6 hours
 
 scriptRunningInform();
