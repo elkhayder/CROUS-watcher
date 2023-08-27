@@ -1,0 +1,69 @@
+{
+   "users": [
+      {
+         "id": "elkhayder",
+         "firstName": "Zakaria",
+         "lastName": "EL KHAYDER",
+         "conversationId": 1272382441,
+         "isAdmin": true
+      },
+      {
+         "id": "ouchato",
+         "firstName": "Iliass",
+         "lastName": "OUCHATO",
+         "conversationId": 1705155345
+      },
+      {
+         "id": "elbihel",
+         "firstName": "Abdelbassir",
+         "lastName": "ELBIHEL",
+         "conversationId": 1602323138
+      },
+      {
+         "id": "hamdoune",
+         "firstName": "Ali",
+         "lastName": "HAMDOUNE",
+         "conversationId": 1879633608
+      },
+      {
+         "id": "EzzediChaymae",
+         "firstName": "Chaymae",
+         "lastName": "EZZEDI",
+         "conversationId": 5152874036
+      }
+   ],
+   "cities": [
+      {
+         "name": "Nantes",
+         "bounds": [
+            { "lon": -1.6418115, "lat": 47.2958583 },
+            { "lon": -1.4788443, "lat": 47.1805856 }
+         ],
+         "participants": ["elkhayder", "hamdoune", "elbihel"]
+      },
+      {
+         "name": "Brest",
+         "bounds": [
+            { "lon": -4.5689169, "lat": 48.4595521 },
+            { "lon": -4.4278311, "lat": 48.3572972 }
+         ],
+         "participants": ["elkhayder"]
+      },
+      {
+         "name": "Mulhouse",
+         "bounds": [
+            { "lon": 7.282494, "lat": 47.7833721 },
+            { "lon": 7.3686272, "lat": 47.7218791 }
+         ],
+         "participants": ["ouchato"]
+      },
+      {
+         "name": "Strasbourg",
+         "bounds": [
+            { "lon": 7.6881, "lat": 48.6462 },
+            { "lon": 7.8361, "lat": 48.4919 }
+         ],
+         "participants": ["EzzediChaymae"]
+      }
+   ]
+}

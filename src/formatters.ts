@@ -1,10 +1,12 @@
-const SnakeToTitleCase = (str) =>
+import { Accommodation, Rent, Area } from "./types";
+
+export const SnakeToTitleCase = (str: string) =>
    str
       .split("_")
       .map((x) => x[0].toUpperCase() + x.slice(1))
       .join(" ");
 
-const FormatHousing = (result) => {
+export const FormatHousing = (result: Accommodation) => {
    // Label
    let message =
       "● Residence: [" +
@@ -35,18 +37,12 @@ const FormatHousing = (result) => {
    return message;
 };
 
-const FormatPrice = (price) => {
-   if (price.min == price.max) return price.min / 100 + "€";
-   return price.min / 100 + "-" + price.max / 100 + "€";
+export const FormatPrice = (rent: Rent) => {
+   if (rent.min == rent.max) return rent.min / 100 + "€";
+   return rent.min / 100 + "-" + rent.max / 100 + "€";
 };
 
-const FormatArea = (area) => {
+export const FormatArea = (area: Area) => {
    if (area.min == area.max) return area.min + "m²";
    return area.min + "-" + area.max + "m²";
-};
-
-module.exports = {
-   SnakeToTitleCase,
-   FormatHousing,
-   FormatPrice,
 };
