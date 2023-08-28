@@ -79,14 +79,6 @@
             { "lon": -0.5336838, "lat": 44.8107826 }
          ],
          "participants": ["MorchidGhizlane"]
-      },
-      {
-         "name": "Dijon",
-         "bounds": [
-            { "lon": 4.9624588, "lat": 47.377486 },
-            { "lon": 5.1020598, "lat": 47.2862577 }
-         ],
-         "participants": ["elkhayder"]
       }
    ]
 }
