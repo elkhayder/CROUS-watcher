@@ -30,6 +30,13 @@
          "firstName": "Chaymae",
          "lastName": "EZZEDI",
          "conversationId": 5152874036
+      },
+      {
+         "id": "MorchidGhizlane",
+         "conversationId": 6535003789,
+         "firstName": "Ghizlane",
+         "lastName": "MORCHID",
+         "verified": false
       }
    ],
    "cities": [
@@ -64,6 +71,22 @@
             { "lon": 7.8361, "lat": 48.4919 }
          ],
          "participants": ["EzzediChaymae"]
+      },
+      {
+         "name": "Bordeaux",
+         "bounds": [
+            { "lon": -0.6386987, "lat": 44.9161806 },
+            { "lon": -0.5336838, "lat": 44.8107826 }
+         ],
+         "participants": ["MorchidGhizlane"]
+      },
+      {
+         "name": "Dijon",
+         "bounds": [
+            { "lon": 4.9624588, "lat": 47.377486 },
+            { "lon": 5.1020598, "lat": 47.2862577 }
+         ],
+         "participants": ["elkhayder"]
       }
    ]
 }

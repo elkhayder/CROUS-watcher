@@ -13,7 +13,7 @@ setInterval(() => {
    retries++;
    console.log(`Retry #${retries}: Fetching Cities`);
    FetchCities();
-}, 15 * 1000); // 15 seconds
+}, 5 * 1000); // 5 seconds
 
 const ScriptIsRunningAlert = () => {
    let message = `Script is still running, retry *#${retries}*`;
