@@ -51,3 +51,5 @@ bot.on("/start", (msg) => {
    }
    bot.sendMessage(conversationId, reply);
 });
+
+bot.inlineKeyboard;
