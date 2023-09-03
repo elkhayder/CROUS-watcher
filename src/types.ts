@@ -111,3 +111,23 @@ export interface Sector {
    id: string;
    label: string;
 }
+
+// City Search
+export interface SearchCityResponse {
+   geometry: {
+      coordinates: number[];
+      type: string;
+   };
+   type: string;
+   properties: {
+      osm_id: number;
+      osm_type: string;
+      extent: number[];
+      country: string;
+      osm_key: string;
+      osm_value: string;
+      name: string;
+      state: string;
+      postcode?: string;
+   };
+}

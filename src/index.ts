@@ -1,19 +1,26 @@
 import { InformAdmin, bot } from "./bot";
 import DB from "./db";
-import { FetchCities } from "./search";
+import { FetchAllCities } from "./search";
+import Cron from "node-cron";
 
-var retries = 0;
+export var retries = 0;
 
 DB.read();
 
-bot.start(); // TODO: Handle
+bot.start();
 
-// handler
-setInterval(() => {
-   retries++;
-   console.log(`Retry #${retries}: Fetching Cities`);
-   FetchCities();
-}, 5 * 1000); // 5 seconds
+const CitiesFetcherCron = Cron.schedule(
+   "*/5 * 6-20 * * *",
+   () => {
+      retries++;
+      console.log("-------------------------------");
+      console.log(`Retry #${retries}: Fetching Cities`);
+      FetchAllCities();
+   },
+   {
+      timezone: "Europe/Paris",
+   }
+);
 
 const ScriptIsRunningAlert = () => {
    let message = `Script is still running, retry *#${retries}*`;
@@ -24,4 +31,10 @@ const ScriptIsRunningAlert = () => {
 
 // Script is Running
 ScriptIsRunningAlert();
-setInterval(ScriptIsRunningAlert, 6 * 60 * 60 * 1000); // 6 hours
+const ScriptIsRunningAlertCron = Cron.schedule(
+   "0 0 */3 * * *",
+   ScriptIsRunningAlert,
+   {
+      timezone: "Europe/Paris",
+   }
+);

@@ -1,0 +1,29 @@
+{
+   "users": [
+      {
+         "id": "elkhayder",
+         "firstName": "Zakaria",
+         "lastName": "EL KHAYDER",
+         "conversationId": 1272382441,
+         "isAdmin": true
+      }
+   ],
+   "cities": [
+      {
+         "name": "Nantes",
+         "bounds": [
+            {
+               "lon": -1.6418115,
+               "lat": 47.2958583
+            },
+            {
+               "lon": -1.4788443,
+               "lat": 47.1805856
+            }
+         ],
+         "participants": [
+            "elkhayder"
+         ]
+      }
+   ]
+}
